@@ -1,0 +1,438 @@
+/* Add this CSS to your project to style the home page */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* height: 100vh; */
+    background:linear-gradient(rgb(44, 26, 122), rgb(130, 118, 238));
+  }
+  .description h1{
+    color: #fff;
+    font-family:'Times New Roman', Times, serif;
+  }
+  .description p{
+    color: #fff;
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px;
+    /* background-color: #0056b3; */
+  }
+
+  .logo {
+
+    color: #fff;
+    height: 90px;
+    padding-top: 40px;
+    padding-left: 50px;
+  }
+  
+  .Empl0yee-data{
+    padding-top: 50px;
+    padding-right: 100px;
+    color: #fff;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+   
+  }
+
+  .useremail{
+   font-weight: 300;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+   
+  }
+  main {
+    text-align: center;
+  }
+
+ 
+  
+  .description {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 5px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+  footer{
+    height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  }
+  /* //////////////////// Login Css */
+  .App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vh;
+    min-height: 100vh;
+    background:linear-gradient(rgb(44, 26, 122), rgb(130, 118, 238));
+  }
+  
+  .loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25em;
+    /* height: 75vh; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
+  .input-container input{
+    height: 1em;
+    width: 15em;
+    border-radius: 10px;
+    border-width: 10px;
+    border:white;
+    box-shadow: 0 0 6px rgb(166, 159, 255);
+    outline: none;
+    padding:10px;
+    font-size: 20px;
+  }
+  input:focus{   
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 16px rgb(125, 115, 255);
+    outline: 0 none;
+  }
+  a{
+    color: rgb(0, 68, 255);
+    font-weight: 500;
+    margin: 5px;
+    cursor: pointer;
+    align-self: baseline;
+    /* margin-left: 40px; */
+  }
+  .loginBut {
+    height: 3em;
+    width: 24em;
+    margin: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background:linear-gradient(rgb(44, 26, 122), rgb(130, 118, 238));
+    border: none;
+    transition: all .2s ease-in-out;
+  }
+ 
+  .loginBut:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgb(199, 199, 199);
+  }
+  .loginBut p{
+    color:white;
+    font-size: 25px;
+    margin-top: -5px;
+  }
+  .siG{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:18px;
+    height: 4em;
+    width: 24em;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(152, 145, 255);
+    border-width: 3px;
+    border-style: dashed;
+    transition: all .2s ease-in-out;
+  }
+  .siG:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgb(199, 199, 199);
+    cursor: pointer;
+  }
+  .siG p{
+    font-size: 20px;
+  }
+  
+  /* ///////////////////Login Css */
+
+
+  /* ////////////////////////////////////////////// start  Signup css */
+  
+  
+  .SignupContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25em;
+    /* height: 80%; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+  }
+  .Sign-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
+  .Sign-input-container input{
+    height: 1em;
+    width: 15em;
+    border-radius: 10px;
+    border-width: 10px;
+    border:white;
+    box-shadow: 0 0 6px rgb(166, 159, 255);
+    outline: none;
+    padding:10px;
+    font-size: 20px;
+  }
+  input:focus{   
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 16px rgb(125, 115, 255);
+    outline: 0 none;
+  }
+  a{
+    color: rgb(0, 68, 255);
+    font-weight: 500;
+    margin: 5px;
+    cursor: pointer;
+    align-self: baseline;
+    /* margin-left: 40px; */
+  }
+  .SignupBut {
+    height: 3em;
+    width: 24em;
+    margin: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background:linear-gradient(rgb(44, 26, 122), rgb(130, 118, 238));
+    border: none;
+    transition: all .2s ease-in-out;
+  }
+ 
+  .SignupBut:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgb(199, 199, 199);
+  }
+  .SignupBut p{
+   
+      color:white;
+      font-size: 20px;
+      margin-top: .1px;
+ 
+  }
+  .siG{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:18px;
+    height: 4em;
+    width: 24em;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(152, 145, 255);
+    border-width: 3px;
+    border-style: dashed;
+    transition: all .2s ease-in-out;
+  }
+  .siG:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgb(199, 199, 199);
+    cursor: pointer;
+  }
+  .siG p{
+    font-size: 20px;
+  }
+/* /////////////////////////////////////////////////end sign up css */
+
+
+/* ///////////////////////////////////////////sale form style start */
+/* Add this CSS in a separate .css or .scss file and import it into your component */
+
+/* Add this CSS in a separate .css or .scss file and import it into your component */
+
+.form-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  margin-bottom: 40px;
+}
+
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container form {
+  display: flex;
+  flex-wrap: wrap; /* Allows input pairs to wrap to the next line */
+  justify-content: space-between; /* Add space between input pairs */
+}
+
+.form-row {
+  flex-basis: 48%; /* Each input pair takes roughly half of the container */
+}
+
+.form-container label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+ 
+}
+
+.form-container button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* /////////////////////////////////////////// sales form end */
+
+/* ///////////////////////////////////////////////// project dashboard start */
+/* ProjectDashboard.css */
+
+/* Container for the entire dashboard */
+.dashboard-container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* /////////////// */
+.dashboard-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 8px;
+  height: 320px;
+  width:100%;
+}
+
+.project-image {
+  max-width: 100%; 
+  height: 100%;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+}
+
+/* //////////// */
+/* Dropdown styling */
+.select-dropdown {
+  margin-bottom: 20px;
+}
+
+
+/* .image-container{
+  height: 320px;
+  width: 50%;
+  background-color: #0056b3;
+  border-radius: 8px;
+}
+
+.project-image {
+  width: 100%;
+ height: 100%;
+
+  border: 2px solid #3498db;
+  border-radius: 8px;
+
+} */
+
+/* Table styling */
+.project-details {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.project-details th, .project-details td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.project-details th {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Table row hover effect */
+.project-details tr:hover {
+  background-color: #f2f2f2;
+  transition: background-color 0.3s ease;
+}
+/* /////////////////////////////////////////////////// Project dashboard end */
+
+/* /////////////////////////////////////////////project table start */
+/* Apply basic styling to the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style table headers */
+th {
+  background-color: #333;
+  color: white;
+  text-align: left;
+  padding: 10px;
+}
+
+/* Style table rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style table data cells */
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* ////////////////////////////////////////////////project tablw end */
