@@ -12,6 +12,7 @@ function Signup() {
     email: "",
     password: "",
     employeeid: "",
+    role: "", // Initialize the role field
   };
 
   const [formData, setFormData] = useState({ ...initialFormData });
@@ -31,7 +32,8 @@ function Signup() {
       !formData.name ||
       !formData.email ||
       !formData.password ||
-      !formData.employeeid
+      !formData.employeeid || 
+      !formData.role  // Initialize the role field
     ) {
       setError("Please fill in all the fields.");
       return;
@@ -104,6 +106,19 @@ function Signup() {
                 value={formData.password}
                 onChange={handleInputChange}
               />
+            </div>
+
+            <div className="Sign-input-container">
+              <label>Role</label>
+              <select
+                name="role"
+                value={formData.role}
+                onChange={handleInputChange}
+              >
+                <option value="">Select a role</option>
+                <option value="Manager">Manager</option>
+                <option value="Employee">Employee</option>
+              </select>
             </div>
 
             {error && <p className="error">{error}</p>}

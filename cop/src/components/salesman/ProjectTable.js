@@ -52,11 +52,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function ProjectTable({ projectId }) {
+function ProjectTable({ projectId, Role }) {
   const [projectData, setProjectData] = useState([]);
   const [updatedStatus, setUpdatedStatus] = useState({});
 
+  console.log("project table mein role aa gya", Role);
+
   useEffect(() => {
+    // //////////////////
     axios
       .get(`http://localhost:5000/projecttable/${projectId}`)
       .then((response) => {
@@ -104,60 +107,70 @@ function ProjectTable({ projectId }) {
   return (
     <div className="project-table">
       {/* {projectData.length > 0 ? ( */}
-        <table>
-          <thead>
-            <tr>
-              {/* <th>SR#</th> */}
-              <th>Floor#</th>
-              <th>Units#</th>
-              <th>Slots#</th>
-              <th>Size</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projectData.map((item, index) => (
-              <tr key={index}>
-                {/* <td>{item.ProjectID}</td> */}
-                <td>{item.FloorNumber}</td>
-                <td>{item.UnitNumber}</td>
-                <td>{item.SlotNumber}</td>
-                <td>{item.Size}</td>
+      <table>
+        <thead>
+          <tr>
+            {/* <th>SR#</th> */}
+            <th>Floor#</th>
+            <th>Units#</th>
+            <th>Slots#</th>
+            <th>Size</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {projectData.map((item, index) => (
+            <tr key={index}>
+              {/* <td>{item.ProjectID}</td> */}
+              <td>{item.FloorNumber}</td>
+              <td>{item.UnitNumber}</td>
+              <td>{item.SlotNumber}</td>
+              <td>{item.Size}</td>
+              {Role === "Manager" ? (
                 <td>
-                  {/* <select>
-                    <option value="available">Available</option>
-                    <option value="hold">Hold</option>
-                    <option value="booked">Booked</option>
-                    <option value="sold">Sold</option>
-                  </select> */}
-
                   <select
                     value={updatedStatus[item.SlotNumber] || item.Status}
                     onChange={(event) =>
                       handleStatusChange(event, item.SlotNumber)
                     }
                   >
-                    <option value="available">Available</option>
+                    {/* <option value="available">Available</option> */}
                     <option value="hold">Hold</option>
-                    <option value="booked">Booked</option>
+                    {/* <option value="booked">Booked</option> */}
                     <option value="sold">Sold</option>
                   </select>
                 </td>
-                <td>
-                  {/* <button>Submit</button> */}
-                  <button onClick={() => handleStatusUpdate(item.SlotNumber)}>
-                    Submit
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+               
+              ) : (
+                <h6 style={{color:'red', textAlign:'center'}}>Only Manager Changed</h6>
+              )}
+              {/* <td>
+                <select
+                  value={updatedStatus[item.SlotNumber] || item.Status}
+                  onChange={(event) =>
+                    handleStatusChange(event, item.SlotNumber)
+                  }
+                >
+                  <option value="available">Available</option>
+                  <option value="hold">Hold</option>
+                  <option value="booked">Booked</option>
+                  <option value="sold">Sold</option>
+                </select>
+              </td> */}
+              <td>      
+                <button onClick={() => handleStatusUpdate(item.SlotNumber)}>
+                  Submit
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       {/* ) : (
         <p>Loading project details...</p>
       )} */}
-      
+
       <footer>
         <h1>Classic COP (20% remaining)</h1>
       </footer>

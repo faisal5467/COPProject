@@ -8,7 +8,7 @@ import ProjectDashboard from "./ProjectDashboard";
 const Salesmandashboard = () => {
   const location = useLocation();
   const userData = location.state;
-  console.log('user he g', userData)
+  console.log('user he g', userData.role)
 
 
     // const [formData, setFormData] = useState({
@@ -66,7 +66,7 @@ return(
       </div> */}
     </main>
 
-    <ProjectDashboard/>
+    <ProjectDashboard userRole={userData.role}/>
 {/* ////////////////////////////////// */}
     {/* <div className="form-container">
       <h2>Salesman Dashboard</h2>

@@ -6,11 +6,15 @@ import walk from "../assets/piano.jpg";
 import ProjectTable from "./ProjectTable";
 import axios from "axios";
 
-function ProjectDashboard() {
+function ProjectDashboard({userRole}) {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState("");
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [selectedProjectImage, setSelectedProjectImage] = useState(null);
+
+  console.log('projectdashboar mein role', userRole)
+
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/projects")
@@ -104,7 +108,7 @@ const handleProjectSelect = (event) => {
             </div>
           )}
         </div>
-          <ProjectTable projectId={selectedProjectId} />
+          <ProjectTable projectId={selectedProjectId} Role={userRole} />
       
     </div>
   );

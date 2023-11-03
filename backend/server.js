@@ -84,9 +84,9 @@ connection.connect((err) => {
 });
 //////////////////////////signup
 app.post('/signup', (req, res) => {
-  const { name, email, password, employeeid } = req.body;
-  const sql = 'INSERT INTO users (name, email, password, EmployeeID ) VALUES (?, ?, ?, ?)';
-  const values = [name, email, password, employeeid ];
+  const { name, email, password, employeeid , role } = req.body;
+  const sql = 'INSERT INTO users (name, email, password, EmployeeID, role ) VALUES (?, ?, ?, ?, ?)';
+  const values = [name, email, password, employeeid , role];
 
   connection.query(sql, values, (err, result) => {
     if (err) {
@@ -97,6 +97,33 @@ app.post('/signup', (req, res) => {
     return res.status(201).json({ message: 'User registered successfully' });
   });
 });
+
+// ////////////////////////////// role
+
+// Define an API endpoint to get the role
+// app.get('/getRole/:userId', (req, res) => {
+//   const userId = req.params.userId;
+
+//   // Define SQL query to retrieve the role
+//   const sql = 'SELECT role FROM users WHERE id = ?';
+  
+//   // Execute the query
+//   connection.query(sql, [userId], (err, results) => {
+//     if (err) {
+//       console.error('Error fetching user role:', err);
+//       return res.status(500).json({ error: 'Failed to fetch user role' });
+//     }
+
+//     if (results.length === 0) {
+//       return res.status(404).json({ error: 'User not found' });
+//     }
+
+//     const userRole = results[0].role;
+//     res.status(200).json({ role: userRole });
+//   });
+// });
+
+
 
 ///////////////////////login
 app.post('/login', (req, res) => {
