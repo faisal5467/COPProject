@@ -16,6 +16,7 @@ import Accountdashboard from './components/account/accountdashboard'
 import Salesmandashboard from './components/salesman/salesmandashboard'
 import Customerdashboard from './components/customer/customerdashboard'
 import ProjectDashboard from './components/salesman/ProjectDashboard';
+import SaleRecord from './components/salesman/SaleRecord';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/projectdashboard",
     element: <ProjectDashboard/>,
+  },
+  {
+    path: "/salerecord",
+    element: <SaleRecord/>,
   },
  
 ]);

@@ -141,7 +141,7 @@
   .loginBut p{
     color:white;
     font-size: 25px;
-    margin-top: -5px;
+    margin-top: 0px;
   }
   .siG{
     display: flex;
@@ -230,7 +230,7 @@
    
       color:white;
       font-size: 20px;
-      margin-top: .1px;
+      margin-top: 3px;
  
   }
   .siG{
@@ -260,10 +260,8 @@
 
 
 /* ///////////////////////////////////////////sale form style start */
-/* Add this CSS in a separate .css or .scss file and import it into your component */
 
-/* Add this CSS in a separate .css or .scss file and import it into your component */
-
+/* 
 .form-container {
   max-width: 90%;
   margin: 0 auto;
@@ -281,13 +279,14 @@
 }
 
 .form-container form {
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap; /* Allows input pairs to wrap to the next line */
-  justify-content: space-between; /* Add space between input pairs */
+  flex-wrap: wrap; 
+  justify-content: space-between; 
 }
 
 .form-row {
-  flex-basis: 48%; /* Each input pair takes roughly half of the container */
+  flex-basis: 48%; 
 }
 
 .form-container label {
@@ -316,7 +315,92 @@
 
 .form-container button:hover {
   background-color: #0056b3;
+} */
+
+.your-form-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  margin-bottom: 40px;
 }
+.your-form-container h2 {
+  text-align: center;
+  margin-bottom:50px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.your-form-container label {
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+.your-form-container form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.your-form-container form .form-row input {
+  width:95%;
+  padding: 10px;
+  margin-bottom: 30px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+ 
+}
+
+.your-form-container form .form-row > div,
+.your-form-container form .form-row > label {
+  flex: 1;
+  padding: 5px;
+}
+
+.form-row label {
+  text-align: right;
+}
+
+.your-form-container form .form-row input,
+.your-form-container form .form-row  input,
+select {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #4CAF50;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row > div,
+  .form-row label {
+    flex: 1;
+  }
+}
+
 
 /* /////////////////////////////////////////// sales form end */
 
@@ -436,3 +520,17 @@ td {
 }
 
 /* ////////////////////////////////////////////////project tablw end */
+
+/* ///////////////////for token display start */
+
+.token-container {
+  display: flex;
+  justify-content: space-between; /* To separate the inputs */
+  align-items: center; /* To vertically center the inputs */
+}
+
+.token-input,
+.amount-in-words-input {
+  flex: 1; /* To distribute available space equally */
+  margin-right: 10px; /* Add some spacing between the inputs */
+}

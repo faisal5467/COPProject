@@ -51,8 +51,11 @@
 // /////////////////////////////////////////////////////////////////////for all data
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SaleRecord from "./SaleRecord";
+import { useNavigate } from "react-router-dom";
 
 function ProjectTable({ projectId, Role }) {
+  const navigate = useNavigate();
   const [projectData, setProjectData] = useState([]);
   const [updatedStatus, setUpdatedStatus] = useState({});
 
@@ -82,21 +85,61 @@ function ProjectTable({ projectId, Role }) {
     }));
   };
 
-  const handleStatusUpdate = (slotNumber) => {
-    const newStatus = updatedStatus[slotNumber];
-    if (newStatus) {
-      // Make an API call to update the status in the database
+  // const handleStatusUpdate = (slotNumber, newStatus) => {
+  //   const newStatus = updatedStatus[slotNumber];
+  //   if (newStatus) {
+  //     // Make an API call to update the status in the database
+  //     axios
+  //       .put(`http://localhost:5000/updateSlotStatus/${slotNumber}`, {
+  //         status: newStatus,
+  //       })
+  //       .then((response) => {
+  //         console.log("Slot status updated successfully");
+  //         // Clear the updated status for the slot
+  //         setUpdatedStatus((prevState) => ({
+  //           ...prevState,
+  //           [slotNumber]: null,
+  //         }));
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error updating slot status:", error);
+  //       });
+  //   }
+  // };
+
+  // ////////////////////////////status update kr raha hon and check kr raha sale recor p jata hai ya nai
+
+  const handleStatusUpdate = (slotNumber, newStatus) => {
+    const updatedStatusValue = updatedStatus[slotNumber];
+    if (updatedStatusValue) {
       axios
         .put(`http://localhost:5000/updateSlotStatus/${slotNumber}`, {
-          status: newStatus,
+          status: updatedStatusValue,
         })
         .then((response) => {
           console.log("Slot status updated successfully");
-          // Clear the updated status for the slot
+       
+
+          const updatedProjectData = projectData.map((item) => {
+            if (item.SlotNumber === slotNumber) {
+              return {
+                ...item,
+                Status: updatedStatusValue,
+              };
+            }
+            return item;
+          });
+          setProjectData(updatedProjectData);
+
           setUpdatedStatus((prevState) => ({
             ...prevState,
             [slotNumber]: null,
           }));
+
+          if (updatedStatusValue === "sold") {
+            // Navigate to the sale record screen
+            navigate("/salerecord"); // Update the route path accordingly
+          }
         })
         .catch((error) => {
           console.error("Error updating slot status:", error);
@@ -145,21 +188,9 @@ function ProjectTable({ projectId, Role }) {
               ) : (
                 <h6 style={{color:'red', textAlign:'center'}}>Only Manager Changed</h6>
               )}
-              {/* <td>
-                <select
-                  value={updatedStatus[item.SlotNumber] || item.Status}
-                  onChange={(event) =>
-                    handleStatusChange(event, item.SlotNumber)
-                  }
-                >
-                  <option value="available">Available</option>
-                  <option value="hold">Hold</option>
-                  <option value="booked">Booked</option>
-                  <option value="sold">Sold</option>
-                </select>
-              </td> */}
+      
               <td>      
-                <button onClick={() => handleStatusUpdate(item.SlotNumber)}>
+                <button onClick={() => handleStatusUpdate(item.SlotNumber , updatedStatus[item.SlotNumber])}>
                   Submit
                 </button>
               </td>
@@ -167,6 +198,8 @@ function ProjectTable({ projectId, Role }) {
           ))}
         </tbody>
       </table>
+
+      {/* <button className="SignupBut" onClick={()=>navigate('/salerecord')}>Submit</button> */}
       {/* ) : (
         <p>Loading project details...</p>
       )} */}
