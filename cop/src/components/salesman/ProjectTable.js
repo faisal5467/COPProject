@@ -1,8 +1,4 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import "../style.css";
 
-// function ProjectTable({ projectId }) {
 //   console.log('in table mein', projectId)
 //   const [projectData, setProjectData] = useState(null);
 
@@ -19,40 +15,13 @@
 //       });
 //   }, [projectId]);
 
-//   return (
-//     <div className="project-table"> {/* Apply the CSS class to the container */}
-//       {/* Render project details in a table */}
-//       {projectData ? (
-//         <table>
-//           <thead>
-//             <tr>
-//               <th>Column Name</th>
-//               <th>Value</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//           {projectData.map((item, index) => (
-//               <tr key={index}>
-//                 <td>{item.ProjectID}</td>
-//                 <td>{item.ProjectName}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       ) : (
-//         <p>Loading project details...</p>
-//       )}
-//     </div>
-//   );
-// }
 
-// export default ProjectTable;
-
-// /////////////////////////////////////////////////////////////////////for all data
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SaleRecord from "./SaleRecord";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../commen/base_url";
+
 
 function ProjectTable({ projectId, Role }) {
   const navigate = useNavigate();
@@ -64,7 +33,7 @@ function ProjectTable({ projectId, Role }) {
   useEffect(() => {
     // //////////////////
     axios
-      .get(`http://localhost:5000/projecttable/${projectId}`)
+      .get(`${BASE_URL}/projecttable/${projectId}`)
       .then((response) => {
         const data = response.data;
         setProjectData(data);
@@ -113,7 +82,7 @@ function ProjectTable({ projectId, Role }) {
     const updatedStatusValue = updatedStatus[slotNumber];
     if (updatedStatusValue) {
       axios
-        .put(`http://localhost:5000/updateSlotStatus/${slotNumber}`, {
+        .put(`${BASE_URL}/updateSlotStatus/${slotNumber}`, {
           status: updatedStatusValue,
         })
         .then((response) => {
@@ -157,7 +126,7 @@ function ProjectTable({ projectId, Role }) {
             <th>Floor#</th>
             <th>Units#</th>
             <th>Slots#</th>
-            <th>Size</th>
+            <th>Size in sq. ft</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -205,7 +174,7 @@ function ProjectTable({ projectId, Role }) {
       )} */}
 
       <footer>
-        <h1>Classic COP (20% remaining)</h1>
+        <h1>Classic COP (20%)</h1>
       </footer>
     </div>
   );

@@ -90,7 +90,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoimage from "./assets/Earthlink_logo.png";
+import "./style.css";
+
 import axios from "axios";
+import { BASE_URL } from "./commen/base_url";
 
 function Login() {
   const navigate = useNavigate();
@@ -104,12 +107,12 @@ function Login() {
 
     // You should replace this URL with your server's login endpoint
     const requestData = {
-      email,
+      // email,
       password,
       employeeid,
      
     };
-    axios.post('http://localhost:5000/login', requestData)
+    axios.post(`${BASE_URL}/login`, requestData)
     .then((response) => {
       console.log("Login response:", response.data.user);
       const userData = response.data.user; 
@@ -117,7 +120,7 @@ function Login() {
     })
     .catch((error) => {
       console.error("Login error:", error);
-      setValidationError("Invalid email or password");
+      setValidationError("Invalid emp ID or password");
     });
 
     ////////////////////////////
@@ -145,11 +148,11 @@ function Login() {
     <div className="App">
       <div>
         {/* ... (your existing code) ... */}
-        <div className="logoimage">
+        <div>
           <img src={logoimage} alt="Your Logo" className="logo" />
         </div>
         <div className="loginContainer">
-          <h1>Login </h1>
+          <h1 style={{textAlign:'center'}}>Login </h1>
           <form onSubmit={handleLogin}>
             <div className="input-container">
               <label>Employee ID</label>
@@ -160,7 +163,7 @@ function Login() {
                 onChange={(e) => setEmployeeID(e.target.value)}
               />
             </div>
-            <div className="input-container">
+            {/* <div className="input-container">
               <label>Email</label>
               <input
                 type="email"
@@ -168,7 +171,7 @@ function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </div>
+            </div> */}
             <div className="input-container">
               <label>Password</label>
               <input
@@ -178,14 +181,15 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            {validationError && <p style={{textAlign: 'center'}}>{validationError}</p>}
             <button className="loginBut" type="submit">
               <p>Login</p>
             </button>
           </form>
-          {validationError && <p>{validationError}</p>}
-          <a href="/signup" style={{ alignSelf: "center", color:'black' }}>
-            Create a new account
-          </a>
+          
+          <a onClick={() => navigate("/signup")} style={{ alignSelf: "center", textAlign: "center", color: "black" }}>
+              <p>Create a new account</p>
+            </a>
         </div>
       </div>
     </div>

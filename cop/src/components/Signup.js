@@ -3,7 +3,9 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import logoimage from "./assets/Earthlink_logo.png";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./commen/base_url";
 import axios from "axios";
+
 
 function Signup() {
   const navigate = useNavigate();
@@ -41,14 +43,14 @@ function Signup() {
 
     // Check if the email already exists in the database
     axios
-      .get(`http://localhost:5000/checkEmail/${formData.email}`)
+      .get(`${BASE_URL}/checkEmail/${formData.email}`)
       .then((res) => {
         if (res.data.exists) {
           setError("Email already exists.");
         } else {
           // If email doesn't exist, proceed with signup
           axios
-            .post("http://localhost:5000/signup", formData)
+            .post(`${BASE_URL}/signup`, formData)
             .then((res) => {
               navigate("/");
             })
@@ -64,20 +66,20 @@ function Signup() {
         <div className="logoimage">
           <img src={logoimage} alt="Your Logo" className="logo" />
         </div>
-        <div className="SignupContainer">
-          <h1>Sign Up</h1>
+        <div className="loginContainer">
+          <h1 style={{textAlign:'center'}}>Sign Up</h1>
           <form onSubmit={handleSubmit}>
-            <div className="Sign-input-container">
+            <div className="input-container">
               <label>Employee ID</label>
               <input
                 type="employeeid"
                 name="employeeid"
-                placeholder="employeeid"
+                placeholder="Employee ID"
                 value={formData.employeeid}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="Sign-input-container">
+            <div className="input-container">
               <label>Name</label>
               <input
                 type="text"
@@ -87,7 +89,7 @@ function Signup() {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="Sign-input-container">
+            <div className="input-container">
               <label>Email</label>
               <input
                 type="email"
@@ -97,7 +99,7 @@ function Signup() {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="Sign-input-container">
+            <div className="input-container">
               <label>Password</label>
               <input
                 type="password"
@@ -115,17 +117,19 @@ function Signup() {
                 value={formData.role}
                 onChange={handleInputChange}
               >
-                <option value="">Select a role</option>
-                <option value="Manager">Manager</option>
-                <option value="Employee">Employee</option>
+                <option value="">Select Role</option>
+                <option value="Executive">Executive</option>
+                <option value="Assistant-Manager">Assistant Manager</option>
+                <option value="Employee">BDM</option>
+                <option value="Manager">SBDM</option>
               </select>
             </div>
 
-            {error && <p className="error">{error}</p>}
-            <button className="SignupBut" type="submit">
+            {error && <p style={{textAlign: 'center'}}>{error}</p>}
+            <button className="loginBut" type="submit">
               <p>Sign Up</p>
             </button>
-            <a href="/" style={{ textAlign: "center", color: "black" }}>
+            <a onClick={() => navigate(-1)} style={{ textAlign: "center", color: "black" }}>
               <p>Already have an account</p>
             </a>
           </form>
