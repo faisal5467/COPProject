@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
-import grande from "../assets/grande.jpg";
+import prive from "../assets/PRIVE.PNG";
 import leaf from "../assets/leaf.jpg";
-import piano from "../assets/piano.jpg";
+import walk from "../assets/grandewalk.PNG";
 import ProjectTable from "./ProjectTable";
 
 import { BASE_URL } from "../commen/base_url";
@@ -14,10 +14,20 @@ function ProjectDashboard({ userRole }) {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [selectedProjectImage, setSelectedProjectImage] = useState(null);
   const [selectedProjectPDFURL, setSelectedProjectPDFURL] = useState("");
-  const PIANO_PDFURL =
-    "https://drive.google.com/file/d/1prtlzc0-0kZ4jaT0O70KVwcOmljBk2DM/view?usp=drive_link";
+  const [selectedGraphicProjectPDFURL, setSelectedGraphicProjectPDFURL] = useState("");
+  const WALK_PDFURL =
+    "https://drive.google.com/file/d/1x4Up5iA4pY3uuOJdLp_WGBB0umwtKet9/view?usp=drive_link";
   const PRIVE_PDFURL =
-    "https://drive.google.com/file/d/1-IAJ8s5w6GiyDGTWnZBjEKWbp-UJSVdd/view?usp=drive_link";
+    "https://drive.google.com/file/d/1g6SYwU09IWB0eNEmDfoRknbO8V5UfgEH/view?usp=drive_link";
+
+// //// brochure
+
+const WALK_Brochure_PDFURL =
+"https://drive.google.com/file/d/1auG6y821r4DTibFCubfcoE03Fm3asVQ5/view?usp=drive_link";
+const PRIVE_Brochure_PDFURL =
+"https://drive.google.com/file/d/1-SZpc2bcyokLenAtaGlYax-jRhAN6RCJ/view?usp=drive_link";
+
+
 
   console.log("projectdashboar mein role", userRole);
 
@@ -48,13 +58,15 @@ function ProjectDashboard({ userRole }) {
 
       // Set the selected project's image based on its name
       switch (event.target.value) {
-        case "PIANO BY THE GRANDE":
-          setSelectedProjectImage(piano);
-          setSelectedProjectPDFURL(PIANO_PDFURL);
+        case "THE GRANDE WALK":
+          setSelectedProjectImage(walk);
+          setSelectedProjectPDFURL(WALK_PDFURL);
+          setSelectedGraphicProjectPDFURL(WALK_Brochure_PDFURL);
           break;
         case "THE GRANDE PRIVE":
-          setSelectedProjectImage(grande);
+          setSelectedProjectImage(prive);
           setSelectedProjectPDFURL(PRIVE_PDFURL);
+          setSelectedGraphicProjectPDFURL(PRIVE_Brochure_PDFURL);
           break;
         // case "The Walk":
         //   setSelectedProjectImage(walk);
@@ -103,7 +115,17 @@ function ProjectDashboard({ userRole }) {
                 href={selectedProjectPDFURL}
                 download={`${selectedProject}.pdf`}
               >
-                <button>Download PDF</button>
+                <button>Graphical View</button>
+              </a>
+            )}
+            {/*  */}
+            {/*  */}
+            {selectedGraphicProjectPDFURL && (
+              <a
+                href={selectedGraphicProjectPDFURL}
+                download={`${selectedProject}.pdf`}
+              >
+                <button>Brochure Download</button>
               </a>
             )}
             {/*  */}

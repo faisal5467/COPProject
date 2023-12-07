@@ -125,11 +125,12 @@
     border-radius: 15px;
   }
   footer{
-    height: 150px;
+    text-align: center;
+    /* height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif; */
   }
   /* //////////////////// Login Css */
   .App {
