@@ -196,6 +196,12 @@ function ProjectTable({ projectId, Role }) {
         ))}
       </tbody>
     </table>
+    <footer>
+        <h3>Classic COP (20%)</h3>
+         <h3>Classic COP Size (Sq. Ft.) for GRANDE PRIVE 10860</h3>
+         <h3>Classic COP Size (Sq. Ft.) for GRANDE WALK 10,000</h3>
+        <a href="https://cp.earthlink.com.pk/">Switch to cp.earthlink.com.pk</a>
+      </footer>
   </div>
 
 
